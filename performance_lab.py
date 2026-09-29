@@ -7,8 +7,12 @@
 # Output: 3
 
 def most_frequent(numbers):
-    # Your code here
-    pass
+    counts = {}
+    for num in numbers:
+        counts[num] = counts.get(num, 0) + 1
+    return max(counts, key=counts.get)
+
+# print(most_frequent([1, 3, 2, 3, 4, 1, 3]))
 
 """
 Time and Space Analysis for problem 1:
@@ -29,8 +33,9 @@ Time and Space Analysis for problem 1:
 # Output: [4, 5, 6, 7]
 
 def remove_duplicates(nums):
-    # Your code here
-    pass
+    return list(set(nums))
+
+# print(remove_duplicates([4, 5, 4, 6, 5, 7]))
 
 """
 Time and Space Analysis for problem 2:
@@ -52,8 +57,15 @@ Time and Space Analysis for problem 2:
 # Output: [(1, 4), (2, 3)]
 
 def find_pairs(nums, target):
-    # Your code here
-    pass
+    pairs = []
+    for num1 in nums:
+        for num2 in nums:
+            if num1 != num2:
+                if num1 + num2 == target and (num2, num1) not in pairs:
+                    pairs.append((num1, num2))
+    return pairs
+
+# print(find_pairs([1, 2, 3, 4], 5))
 
 """
 Time and Space Analysis for problem 3:
@@ -98,8 +110,14 @@ Time and Space Analysis for problem 4:
 # Because: [1, 1+2, 1+2+3, 1+2+3+4]
 
 def running_total(nums):
-    # Your code here
-    pass
+    total = 0
+    total_list = []
+    for num in nums:
+        total += num
+        total_list.append(total)
+    return total_list
+
+# print(running_total([1, 2, 3, 4]))
 
 """
 Time and Space Analysis for problem 5:
